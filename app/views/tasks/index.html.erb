@@ -1,0 +1,15 @@
+<h1>Your ToDo</h1>
+
+<% @tasks.each do |task| %>
+  <h2><%= task.title %></h2>
+  <p><%= task.done %></p>
+  <p><%=link_to "show", task_path(task) %></p>
+  <p><%=link_to "edit", edit_path(task) %></p>
+  <p><%= link_to 'destroy', delete_path(task),
+            data: {
+              :confirm => 'Are you sure?'
+              },
+            :method => :delete %></p>
+<% end %>
+
+<p><%=link_to "New task", tasks_new_path %></p>
