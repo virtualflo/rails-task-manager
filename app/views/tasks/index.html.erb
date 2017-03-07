@@ -2,7 +2,7 @@
 
 <% @tasks.each do |task| %>
   <h2><%= task.title %></h2>
-  <p><%= task.done %></p>
+  <p><%= task.done ? "[x]" : "[ ]" %></p>
   <p><%=link_to "show", task_path(task) %></p>
   <p><%=link_to "edit", edit_path(task) %></p>
   <p><%= link_to 'destroy', delete_path(task),
@@ -12,4 +12,4 @@
             :method => :delete %></p>
 <% end %>
 
-<p><%=link_to "New task", tasks_new_path %></p>
+<p class= "btn"><%=link_to "New task", tasks_new_path %></p>
